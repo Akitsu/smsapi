@@ -11,6 +11,11 @@
 |
 */
 
+
 $app->get('/', function () use ($app) {
     return "hoi ik heet anthony";
 });
+
+$app->get('test', [
+    'as' => 'test', 'uses' => 'TestController@test'
+]);
