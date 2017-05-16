@@ -13,6 +13,6 @@ class TestController extends BaseController
 
         $output = shell_exec("gammu-smsd-inject TEXT " .$number . "-text" ." ". "\"" . $message ."\"" );
 
-        return $output;
+        return "gammu-smsd-inject TEXT " .$number . "-text" ." ". "\"" . $message ."\"" ;
     }
 }
