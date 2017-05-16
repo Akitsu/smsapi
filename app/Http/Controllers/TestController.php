@@ -11,7 +11,8 @@ class TestController extends BaseController
         $number = $request->input('number');
         $message = $request->input('message');
 
-        $output = shell_exec("gammu-smsd-inject TEXT " .$number . "-text" . "."." . $message .".".");
+        $output = shell_exec("gammu-smsd-inject TEXT " .$number . "-text" . "\"" . $message ."\"" );
         return $output;
     }
 }
+"\""
