@@ -6,9 +6,12 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
 class TestController extends BaseController
 {
-    public function test()
+    public function test(Request $request)
     {
-        $output = shell_exec("gammu-smsd-inject TEXT 0646014672 -text \"All your base are belong to us\"");
+        $number = $request->input('number');
+        $message = $request->input('message');
+
+        $output = shell_exec("gammu-smsd-inject TEXT " .$number . "-text" . $message);
         return $output;
     }
 }
