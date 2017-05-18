@@ -26,7 +26,7 @@ class MessageController extends BaseController
     }
 
     public function getMessagesByTerm(Request $request) {
-        return new JsonResponse(DB::select("SELECT * FROM `inbox` WHERE `TextDecoded` LIKE '%" . $request->input('term') . "%'"));
+        return new JsonResponse(Inbox::where('TextDecoded', 'LIKE', '%' . $request->input('term') . "%")->get());
     }
 
     public function sendMessage(Request $request) {
@@ -50,7 +50,7 @@ class MessageController extends BaseController
     public function markAsRead (Request $request) {
 //        $message = DB::select('SELECT * FROM `inbox` WHERE `ID` = ' . $request->input('id'));
         $message = Inbox::where('ID','=',$request->input('id'))->first();
-        $message->Processed = 1;
+        $message->Processed = "true";
 
 //        var_dump($message);
 
@@ -58,8 +58,8 @@ class MessageController extends BaseController
     }
 
     public function markAsUnread (Request $request) {
-        $message = DB::select('SELECT * FROM `inbox` WHERE `ID` = ' . $request->input('id'));
-        $message->processed = false;
+        $message = Inbox::where('ID','=',$request->input('id'))->first();
+        $message->processed = "false";
 
         return new JsonResponse($message->save());
     }
