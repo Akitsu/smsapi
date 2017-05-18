@@ -67,11 +67,10 @@ class MessageController extends BaseController
                 $outbox->SendingDateTime = $request->input('datetime');
             }
             $outbox->DeliveryReport = "yes";
+
+            return new JsonResponse($outbox->save());
         }
 
-
-
-        return new JsonResponse($outbox->save());
     }
 
     public function deleteMessage (Request $request) {
