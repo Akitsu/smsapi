@@ -52,6 +52,8 @@ class MessageController extends BaseController
         $message = Inbox::find($request->input('id'));
         $message->processed = true;
 
+        var_dump($message);
+
         return new JsonResponse($message->save());
     }
 
