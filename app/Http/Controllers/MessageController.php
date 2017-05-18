@@ -50,7 +50,7 @@ class MessageController extends BaseController
     public function markAsRead (Request $request) {
 //        $message = DB::select('SELECT * FROM `inbox` WHERE `ID` = ' . $request->input('id'));
         $message = Inbox::where('ID','=',$request->input('id'))->first();
-        $message->processed = 1;
+        $message->Processed = 1;
 
 //        var_dump($message);
 
