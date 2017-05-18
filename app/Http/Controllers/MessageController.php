@@ -47,7 +47,7 @@ class MessageController extends BaseController
                     var_dump($outbox->TextDecoded);
                     if (!$save) return new JsonResponse(false);
 
-                    $outboxID = $outbox->;
+                    $outboxID = $outbox->ID;
 
                 } else {
                     echo "else";
