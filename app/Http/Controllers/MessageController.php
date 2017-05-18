@@ -25,7 +25,7 @@ class MessageController extends BaseController
     }
 
     public function getMessagesByTerm(Request $request) {
-        return new JsonResponse(DB::select('SELECT * FROM `inbox` LIKE `TextDecoded` = %' . $request->input('number') . '%'));
+        return new JsonResponse(DB::select("SELECT * FROM `inbox` WHERE `TextDecoded` LIKE '%" . $request->input('term') . "%'"));
     }
 
     public function sendMessage(Request $request) {
