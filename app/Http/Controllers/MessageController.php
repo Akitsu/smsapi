@@ -44,14 +44,11 @@ class MessageController extends BaseController
                     }
                     $outbox->DeliveryReport = "yes";
                     $save = $outbox->save();
-                    var_dump($outbox->id);
                     if (!$save) return new JsonResponse(false);
 
-                    $outboxID = $outbox->ID;
+                    $outboxID = $outbox->id;
 
                 } else {
-                    echo "else";
-                    var_dump($outboxID);
                     $outboxmp = new Outboxmp;
                     $outboxmp->TextDecoded = $msg[$i];
                     $outboxmp->SequencePosition = $i + 1;
