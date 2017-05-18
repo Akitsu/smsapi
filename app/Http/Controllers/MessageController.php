@@ -33,8 +33,8 @@ class MessageController extends BaseController
         $msg = str_split($request->input('message'), 160);
 
         if (count($msg) > 1) {
+            $outboxID = -1;
             for ($i = 0; $i < count($msg); $i++) {
-                $outboxID = -1;
                 if ($i == 0) {
                     $outbox = new Outbox();
                     $outbox->DestinationNumber = $request->input('number');
