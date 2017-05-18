@@ -42,6 +42,7 @@ class MessageController extends BaseController
                     if ($request->has('datetime')) {
                         $outbox->SendingDateTime = $request->input('datetime');
                     }
+                    $outbox->Class = 1;
                     $outbox->DeliveryReport = "yes";
                     $save = $outbox->save();
                     if (!$save) return new JsonResponse(false);
@@ -53,6 +54,7 @@ class MessageController extends BaseController
                     $outboxmp->TextDecoded = $msg[$i];
                     $outboxmp->SequencePosition = $i + 1;
                     $outboxmp->ID = $outboxID;
+                    $outboxmp->Class = 1;
 
                     $sve = $outboxmp->save();
 
