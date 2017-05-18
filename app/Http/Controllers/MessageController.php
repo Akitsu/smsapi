@@ -44,6 +44,7 @@ class MessageController extends BaseController
                     }
                     $outbox->Class = 1;
                     $outbox->DeliveryReport = "yes";
+                    $outbox->MultiPart = 'true';
                     $save = $outbox->save();
                     if (!$save) return new JsonResponse(false);
 
