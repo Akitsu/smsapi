@@ -28,3 +28,6 @@ $app->post('deletemessage', [
 $app->get('getstatus', [
     'as' => 'getstatus', 'uses' => 'PhoneController@getStatus'
 ]);
+$app->get('getsentmessages', [
+    'as' => 'getsentmessages', 'uses' => 'SentMessageController@getSentMessages'
+]);
