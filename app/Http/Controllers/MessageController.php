@@ -6,7 +6,7 @@ use Illuminate\Http\JsonResponse;
 use Laravel\Lumen\Routing\Controller as BaseController;
 use App\Inbox as Inbox;
 
-class InboxController extends BaseController
+class MessageController extends BaseController
 {
     public function getAllMessages()
     {
