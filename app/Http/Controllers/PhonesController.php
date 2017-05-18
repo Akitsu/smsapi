@@ -7,11 +7,11 @@ use App\Phones as Phones;
 
 class PhonesController extends BaseController
 {
-    public function getPhones()
+    public function getStatus()
     {
         $phones = Phones::get();
 
-        return new JsonResponse(['phones' => $phones]);
+        return new JsonResponse(['status' => $phones]);
     }
 }
 

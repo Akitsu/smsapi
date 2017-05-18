@@ -25,3 +25,6 @@ $app->post('markasunread', [
 $app->post('deletemessage', [
     'as' => 'deletemessage', 'uses' => 'MessageController@deleteMessage'
 ]);
+$app->get('getstatus', [
+    'as' => 'getstatus', 'uses' => 'PhoneController@getStatus'
+]);
