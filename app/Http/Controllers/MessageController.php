@@ -44,7 +44,7 @@ class MessageController extends BaseController
                     }
                     $outbox->DeliveryReport = "yes";
                     $save = $outbox->save();
-                    if (!$save) return false;
+                    if (!$save) return new JsonResponse(false);
                     $outboxID = $outbox->ID;
                 } else {
                     $outboxmp = new Outboxmp;
@@ -54,8 +54,8 @@ class MessageController extends BaseController
 
                     $sve = $outboxmp->save();
 
-                    if (!$sve) return false;
-                    if ($i == count($msg) - 1) return true;
+                    if (!$sve) return new JsonResponse(false);
+                    if ($i == count($msg) - 1) return new JsonResponse(true);
                 }
             }
 
