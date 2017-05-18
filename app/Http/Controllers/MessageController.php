@@ -6,6 +6,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Laravel\Lumen\Routing\Controller as BaseController;
 use App\Inbox as Inbox;
+use App\Outbox as Outbox;
 
 class MessageController extends BaseController
 {
@@ -29,7 +30,15 @@ class MessageController extends BaseController
     }
 
     public function sendMessage(Request $request) {
-        return new JsonResponse(Inbox::find($request->input('words')));
+        $outbox = new Outbox();
+        $outbox->DestinationNumber = $request->input('number');
+        $outbox->TextDecoded = $request->input('message');
+        if ($request->has('datetime')) {
+            $outbox->SendingDateTime = $request->input('datetime');
+        }
+        $outbox->DeliveryReport = "yes";
+
+        return new JsonResponse($outbox->save());
     }
 }
 
