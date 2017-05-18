@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Laravel\Lumen\Routing\Controller as BaseController;
 use App\Inbox as Inbox;
 use App\Outbox as Outbox;
+use App\Outboxmp as Outboxmp;
 
 class MessageController extends BaseController
 {
@@ -28,13 +29,47 @@ class MessageController extends BaseController
     }
 
     public function sendMessage(Request $request) {
-        $outbox = new Outbox();
-        $outbox->DestinationNumber = $request->input('number');
-        $outbox->TextDecoded = $request->input('message');
-        if ($request->has('datetime')) {
-            $outbox->SendingDateTime = $request->input('datetime');
+
+        $msg = str_split($request->input('message'), 160);
+
+        if (count($msg) > 1) {
+            for ($i = 0; $i < count($msg); $i++) {
+                $outboxID = -1;
+                if ($i == 0) {
+                    $outbox = new Outbox();
+                    $outbox->DestinationNumber = $request->input('number');
+                    $outbox->TextDecoded = $msg[0];
+                    if ($request->has('datetime')) {
+                        $outbox->SendingDateTime = $request->input('datetime');
+                    }
+                    $outbox->DeliveryReport = "yes";
+                    $save = $outbox->save();
+                    if (!$save) return false;
+                    $outboxID = $outbox->ID;
+                } else {
+                    $outboxmp = new Outboxmp;
+                    $outboxmp->TextDecoded = $msg[$i];
+                    $outboxmp->SequencePosition = $i + 1;
+                    $outboxmp->ID = $outboxID;
+
+                    $sve = $outboxmp->save();
+
+                    if (!$sve) return false;
+                    if ($i == count($msg) - 1) return true;
+                }
+            }
+
+        } else {
+            $outbox = new Outbox();
+            $outbox->DestinationNumber = $request->input('number');
+            $outbox->TextDecoded = $request->input('message');
+            if ($request->has('datetime')) {
+                $outbox->SendingDateTime = $request->input('datetime');
+            }
+            $outbox->DeliveryReport = "yes";
         }
-        $outbox->DeliveryReport = "yes";
+
+
 
         return new JsonResponse($outbox->save());
     }
