@@ -45,6 +45,7 @@ class MessageController extends BaseController
                     $outbox->DeliveryReport = "yes";
                     $save = $outbox->save();
                     if (!$save) return new JsonResponse(false);
+                    var_dump($outbox);
                     $outboxID = $outbox->ID;
                 } else {
                     $outboxmp = new Outboxmp;
