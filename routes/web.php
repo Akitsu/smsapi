@@ -3,14 +3,14 @@
 $app->get('getallmessages', [
     'as' => 'allmessages', 'uses' => 'MessageController@getAllMessages'
 ]);
-$app->post('getmesssagebynumber', [
-    'as' => 'getmesssagebynumber', 'uses' => 'MessageController@getMessagesByNumber'
+$app->post('getmessagesbynumber', [
+    'as' => 'getmessagesbynumber', 'uses' => 'MessageController@getMessagesByNumber'
 ]);
-$app->post('getmessagebyterm', [
-    'as' => 'getmessagebyterm', 'uses' => 'MessageController@getMessagesByTerm'
+$app->post('getmessagesbyterm', [
+    'as' => 'getmessagesbyterm', 'uses' => 'MessageController@getMessagesByTerm'
 ]);
-$app->post('getmessagebyid', [
-    'as' => 'getmessagebyid', 'uses' => 'MessageController@getMessagesById'
+$app->post('getmessagesbyid', [
+    'as' => 'getmessagesbyid', 'uses' => 'MessageController@getMessagesById'
 ]);
 
 $app->post('sendtext', [
