@@ -19,3 +19,7 @@ $app->get('/', function () use ($app) {
 $app->post('test', [
     'as' => 'test', 'uses' => 'TestController@test'
 ]);
+
+$app->get('inbox', [
+    'as' => 'inbox', 'uses' => 'InboxController@getInbox'
+]);
