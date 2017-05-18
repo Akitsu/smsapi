@@ -18,7 +18,7 @@ class MessageController extends BaseController
     }
 
     public function getMessagesByNumber(Request $request) {
-        return new JsonResponse(DB::select('SELECT * FROM `inbox` WHERE `SenderNumber` = ' . $request->input('number')));
+        return new JsonResponse(Inbox::where('SenderNumber', '=', $request->input('number'))->get());
     }
 
     public function getMessagesById(Request $request) {
@@ -42,8 +42,6 @@ class MessageController extends BaseController
     }
 
     public function deleteMessage (Request $request) {
-//        $rows = DB::select('SELECT * FROM `inbox` WHERE `ID` = ' . $request->input('id'));
-        
         $message = Inbox::where('ID', $request->input('id'))
             ->delete();
 
