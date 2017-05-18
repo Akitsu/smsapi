@@ -48,7 +48,8 @@ class MessageController extends BaseController
     }
 
     public function markAsRead (Request $request) {
-        $message = DB::select('SELECT * FROM `inbox` WHERE `ID` = ' . $request->input('id'));
+//        $message = DB::select('SELECT * FROM `inbox` WHERE `ID` = ' . $request->input('id'));
+        $message = Inbox::find($request->input('id'));
         $message->processed = true;
 
         return new JsonResponse($message->save());
