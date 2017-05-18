@@ -23,3 +23,7 @@ $app->post('test', [
 $app->get('inbox', [
     'as' => 'inbox', 'uses' => 'InboxController@getInbox'
 ]);
+
+$app->get('phones', [
+    'as' => 'phones', 'uses' => 'PhonesController@getPhones'
+]);
