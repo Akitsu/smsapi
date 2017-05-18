@@ -13,8 +13,8 @@ $app->post('getmessagesbyid', [
     'as' => 'getmessagesbyid', 'uses' => 'MessageController@getMessagesById'
 ]);
 
-$app->post('sendtext', [
-    'as' => 'sendtext', 'uses' => 'MessageController@sendText'
+$app->post('sendmessage', [
+    'as' => 'sendmessage', 'uses' => 'MessageController@sendMessage'
 ]);
 $app->post('markasread', [
     'as' => 'markasread', 'uses' => 'MessageController@markAsRead'
