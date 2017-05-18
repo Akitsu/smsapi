@@ -40,6 +40,26 @@ class MessageController extends BaseController
 
         return new JsonResponse($outbox->save());
     }
+
+    public function deleteMessage (Request $request) {
+        $rows = DB::select('SELECT * FROM `inbox` WHERE `ID` = ' . $request->input('id'));
+
+        return new JsonResponse($rows->delete());
+    }
+
+    public function markAsRead (Request $request) {
+        $message = DB::select('SELECT * FROM `inbox` WHERE `ID` = ' . $request->input('id'));
+        $message->processed = true;
+
+        return new JsonResponse($message->save());
+    }
+
+    public function markAsUnread (Request $request) {
+        $message = DB::select('SELECT * FROM `inbox` WHERE `ID` = ' . $request->input('id'));
+        $message->processed = false;
+
+        return new JsonResponse($message->save());
+    }
 }
 
 

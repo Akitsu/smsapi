@@ -22,6 +22,6 @@ $app->post('markasread', [
 $app->post('markasunread', [
     'as' => 'markasunread', 'uses' => 'MessageController@markAsUnread'
 ]);
-$app->post('deletetext', [
-    'as' => 'deletetext', 'uses' => 'MessageController@deleteText'
+$app->post('deletemessage', [
+    'as' => 'deletemessage', 'uses' => 'MessageController@deleteMessage'
 ]);
