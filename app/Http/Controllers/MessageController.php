@@ -21,7 +21,7 @@ class MessageController extends BaseController
     }
 
     public function getMessagesById(Request $request) {
-        return new JsonResponse(Inbox::find($request->input('id')));
+        return new JsonResponse(Inbox::where('ID', '=', $request->input('id'))->get());
     }
 
     public function getMessagesByTerm(Request $request) {
