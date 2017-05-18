@@ -5,7 +5,7 @@ use Illuminate\Http\JsonResponse;
 use Laravel\Lumen\Routing\Controller as BaseController;
 use App\Phones as Phones;
 
-class PhonesController extends BaseController
+class PhoneController extends BaseController
 {
     public function getStatus()
     {
