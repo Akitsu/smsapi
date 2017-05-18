@@ -1,29 +1,27 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
-
-
-$app->get('/', function () use ($app) {
-    return "hoi ik heet anthony";
-});
-
-$app->post('test', [
-    'as' => 'test', 'uses' => 'TestController@test'
+$app->get('getallmessages', [
+    'as' => 'allmessages', 'uses' => 'MessageController@getAllMessages'
+]);
+$app->get('getmesssagebynumber', [
+    'as' => 'getmesssagebynumber', 'uses' => 'MessageController@getMessagesByNumber'
+]);
+$app->get('getmessagebyterm', [
+    'as' => 'getmessagebyterm', 'uses' => 'MessageController@getMessagesByTerm'
+]);
+$app->get('getmessagebyid', [
+    'as' => 'getmessagebyid', 'uses' => 'MessageController@getMessagesById'
 ]);
 
-$app->get('inbox', [
-    'as' => 'inbox', 'uses' => 'InboxController@getInbox'
+$app->post('sendtext', [
+    'as' => 'sendtext', 'uses' => 'MessageController@sendText'
 ]);
-
-$app->get('phones', [
-    'as' => 'phones', 'uses' => 'PhonesController@getPhones'
+$app->post('markasread', [
+    'as' => 'markasread', 'uses' => 'MessageController@markAsRead'
+]);
+$app->post('markasunread', [
+    'as' => 'markasunread', 'uses' => 'MessageController@markAsUnread'
+]);
+$app->post('deletetext', [
+    'as' => 'deletetext', 'uses' => 'MessageController@deleteText'
 ]);
