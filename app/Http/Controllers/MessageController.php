@@ -48,18 +48,18 @@ class MessageController extends BaseController
     }
 
     public function markAsRead (Request $request) {
-//        $message = DB::select('SELECT * FROM `inbox` WHERE `ID` = ' . $request->input('id'));
-        $message = Inbox::where('ID','=',$request->input('id'))->first();
-        $message->Processed = "true";
+        $message = Inbox::where('ID', $request->input('id'))
+            ->update(['Processed' => 'true']);
+//        $message = Inbox::where('ID','=',$request->input('id'))->first();
+//        $message->Processed = "true";
 
-//        var_dump($message);
 
-        return new JsonResponse($message->save());
+        return new JsonResponse($message);
     }
 
     public function markAsUnread (Request $request) {
         $message = Inbox::where('ID','=',$request->input('id'))->first();
-        $message->processed = "false";
+        $message->Processed = "false";
 
         return new JsonResponse($message->save());
     }
