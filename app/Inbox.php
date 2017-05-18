@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Inbox extends Model
 {
     public $timestamps = false;
-    protected $table = 'singular';
+    protected $table = 'inbox';
     /**
      * The attributes that are mass assignable.
      *
