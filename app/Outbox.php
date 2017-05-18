@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Outbox extends Model
 {
     public $timestamps = false;
+    protected $table = 'outbox';
+
     /**
      * The attributes that are mass assignable.
      *
