@@ -41,7 +41,7 @@ class OutboxMessageController extends BaseController
 
     public function updateOutboxMessageText (Request $request) {
         $message = Outbox::where('ID', $request->input('id'))
-            ->update(['TextDecoded' => $request->input('text')]);
+            ->update(['TextDecoded' => $request->input('message')]);
 
         return new JsonResponse($message);
     }
