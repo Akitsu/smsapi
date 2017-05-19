@@ -9,7 +9,7 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\User as User;
 
-class UserController extends BaseController
+class UserController extends BaseController implements JWTSubject
 {
     public function getJWTIdentifier()
     {
