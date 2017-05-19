@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Laravel\Lumen\Routing\Controller as BaseController;
-use App\Sentitems as SentItems;
+use App\SentItems as SentItems;
 
 class SentMessageController extends BaseController
 {
