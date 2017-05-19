@@ -98,6 +98,9 @@ class MessageController extends BaseController
 
         return new JsonResponse($message);
     }
+    public function test(){
+        return "jeeej je bent authorized";
+    }
 }
 
 

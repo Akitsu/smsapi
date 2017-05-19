@@ -70,3 +70,9 @@ $app->post('updateoutboxmessagedate', [
 $app->post('updateoutboxmessagetext', [
     'as' => 'updateoutboxmessagetext', 'uses' => 'OutboxMessageController@updateOutboxMessageText'
 ]);
+
+$app->group(['middleware' => 'auth'], function () use ($app) {
+    $app->post('test', [
+        'as' => 'test', 'uses' => 'MessageController@test'
+    ]);
+});
