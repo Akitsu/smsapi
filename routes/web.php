@@ -52,11 +52,11 @@ $app->post('deletesentmessage', [
 $app->get('getoutboxmessages', [
     'as' => 'getoutboxmessages', 'uses' => 'OutboxMessageController@getAllOutboxMessages'
 ]);
-$app->post('getsentmessagesbynumber', [
-    'as' => 'getsentmessagesbynumber', 'uses' => 'OutboxMessageController@getOutboxMessagesByNumber'
+$app->post('getoutboxmessagesbynumber', [
+    'as' => 'getoutboxmessagesbynumber', 'uses' => 'OutboxMessageController@getOutboxMessagesByNumber'
 ]);
-$app->post('getsentmessagesbyterm', [
-    'as' => 'getsentmessagesbyterm', 'uses' => 'OutboxMessageController@getOutboxMessagesByTerm'
+$app->post('getoutboxmessagesbyterm', [
+    'as' => 'getoutboxmessagesbyterm', 'uses' => 'OutboxMessageController@getOutboxMessagesByTerm'
 ]);
 $app->post('getoutboxmessagesbyid', [
     'as' => 'getoutboxmessagesbyid', 'uses' => 'OutboxMessageController@getOutboxMessagesById'
