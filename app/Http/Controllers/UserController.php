@@ -6,6 +6,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Lumen\Routing\Controller as BaseController;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\User as User;
 
 class UserController extends BaseController
