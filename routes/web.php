@@ -76,3 +76,9 @@ $app->group(['middleware' => 'auth'], function () use ($app) {
         'as' => 'test', 'uses' => 'MessageController@test'
     ]);
 });
+
+$app->get('/login', function (Request $request) {
+    $token = app('auth')->attempt($request->only('email', 'password'));
+
+    return response()->json(compact('token'));
+});
