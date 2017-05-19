@@ -78,5 +78,5 @@ $app->group(['middleware' => 'auth'], function () use ($app) {
 });
 
 $app->post('login', [
-    'as' => 'login', 'uses' => 'User@login'
+    'as' => 'login', 'uses' => 'UserController@login'
 ]);
