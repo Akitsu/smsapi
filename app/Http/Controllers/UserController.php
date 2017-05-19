@@ -12,12 +12,12 @@ class UserController extends BaseController
     public function createAccount(Request $request) {
         $user = new User;
         $user->username = $request->input('username');
-        $user->password = $request->input('password');
+        $user->password =  app('hash')->make($request->input('password'));
         $user->save();
 
         return new JsonResponse($user);
     }
-    
+
     public function login(Request $request){
         $token = app('auth')->attempt($request->only('username', 'password'));
 
