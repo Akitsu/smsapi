@@ -13,7 +13,7 @@ class MessageController extends BaseController
 {
     public function getAllMessages()
     {
-        return new JsonResponse(['messages' => Inbox::get()]);
+        return new JsonResponse(['messages' => Inbox::toSql()]);
     }
 
     public function getMessagesByNumber(Request $request) {
