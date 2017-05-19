@@ -10,7 +10,7 @@ class SentMessageController extends BaseController
 {
     public function getSentMessages()
     {
-        return new JsonResponse(['messages' => Sentitems::get()]);
+        return new JsonResponse(Sentitems::get());
     }
 
     public function getSentMessagesByNumber(Request $request) {

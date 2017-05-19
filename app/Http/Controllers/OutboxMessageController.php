@@ -10,7 +10,7 @@ class OutboxMessageController extends BaseController
 {
     public function getAllOutboxMessages()
     {
-        return new JsonResponse(['outboxMessages' => Outbox::get()]);
+        return new JsonResponse(Outbox::get());
     }
 
     public function getOutboxMessagesByNumber(Request $request) {
