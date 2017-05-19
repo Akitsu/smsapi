@@ -80,6 +80,12 @@ $app->singleton(
 |
 */
 
+if (!class_exists('JWTAuth')) {
+    class_alias('Tymon\JWTAuth\Facades\JWTAuth', 'JWTAuth');
+}
+$app->register('Tymon\JWTAuth\Providers\JWTAuthServiceProvider');
+$app->register('Tymon\JWTAuth\Facades\JWTFactory');
+
 // $app->register(App\Providers\AppServiceProvider::class);
  $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
