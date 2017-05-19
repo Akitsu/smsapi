@@ -47,3 +47,26 @@ $app->post('getsentmessagesbyid', [
 $app->post('deletesentmessage', [
     'as' => 'deletesentmessage', 'uses' => 'SentMessageController@deleteSentMessage'
 ]);
+
+//OutboxController
+$app->get('getoutboxmessages', [
+    'as' => 'getoutboxmessages', 'uses' => 'OutboxMessageController@getSentMessages'
+]);
+$app->post('getsentmessagesbynumber', [
+    'as' => 'getsentmessagesbynumber', 'uses' => 'OutboxMessageController@getOutboxMessagesByNumber'
+]);
+$app->post('getsentmessagesbyterm', [
+    'as' => 'getsentmessagesbyterm', 'uses' => 'OutboxMessageController@getOutboxMessagesByTerm'
+]);
+$app->post('getoutboxmessagesbyid', [
+    'as' => 'getoutboxmessagesbyid', 'uses' => 'OutboxMessageController@getOutboxMessagesById'
+]);
+$app->post('deleteoutboxmessage', [
+    'as' => 'deleteoutboxmessage', 'uses' => 'OutboxMessageController@deleteOutboxMessage'
+]);
+$app->post('updateoutboxmessagedate', [
+    'as' => 'updateoutboxmessagedate', 'uses' => 'OutboxMessageController@updateoutboxmessagedate'
+]);
+$app->post('updateoutboxmessagetext', [
+    'as' => 'updateoutboxmessagetext', 'uses' => 'OutboxMessageController@updateoutboxmessagetext'
+]);
