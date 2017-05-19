@@ -6,21 +6,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Lumen\Routing\Controller as BaseController;
-use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\User as User;
 
-class UserController extends BaseController implements JWTSubject
+class UserController extends BaseController
 {
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
-}
-
-    public function getJWTCustomClaims()
-    {
-        return [];
-    }
-
     public function createAccount(Request $request) {
         $user = new User;
         $user->username = $request->input('username');
