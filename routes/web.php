@@ -77,6 +77,10 @@ $app->group(['middleware' => 'auth'], function () use ($app) {
     ]);
 });
 
+$app->post('createaccount', [
+    'as' => 'createaccount', 'uses' => 'UserController@createAccount'
+]);
+
 $app->post('login', [
     'as' => 'login', 'uses' => 'UserController@login'
 ]);
