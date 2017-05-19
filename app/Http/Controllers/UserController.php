@@ -10,7 +10,7 @@ use App\User as User;
 class UserController extends BaseController
 {
     public function login(Request $request){
-        $token = app('auth')->attempt($request->only('email', 'password'));
+        $token = app('auth')->attempt($request->only('username', 'password'));
 
         return response()->json(compact('token'));
     }
