@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sentitems extends Model
+class SentItems extends Model
 {
     public $timestamps = false;
     protected $table = 'sentitems';
