@@ -77,7 +77,7 @@ $app->group(['middleware' => 'auth'], function () use ($app) {
     ]);
 });
 
-$app->get('/login', function (Request $request) {
+$app->get('login', function (Request $request) {
     $token = app('auth')->attempt($request->only('email', 'password'));
 
     return response()->json(compact('token'));
