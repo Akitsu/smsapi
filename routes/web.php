@@ -84,3 +84,7 @@ $app->post('createaccount', [
 $app->post('login', [
     'as' => 'login', 'uses' => 'UserController@login'
 ]);
+
+$app->post('test', [
+    'as' => 'test', 'uses' => 'UserController@test'
+]);

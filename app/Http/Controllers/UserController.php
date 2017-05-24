@@ -24,6 +24,10 @@ class UserController extends BaseController
 
         return response()->json(compact('token'));
     }
+
+    public function test(Request $request) {
+        return $request->user();
+    }
 }
 
 
