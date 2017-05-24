@@ -85,6 +85,6 @@ $app->post('login', [
     'as' => 'login', 'uses' => 'UserController@login'
 ]);
 
-$app->post('test', [
+$app->get('test', [
     'as' => 'test', 'uses' => 'UserController@test'
 ]);
