@@ -84,7 +84,3 @@ $app->post('createaccount', [
 $app->post('login', [
     'as' => 'login', 'uses' => 'UserController@login'
 ]);
-
-$app->get('test', [
-    'as' => 'test', 'uses' => 'UserController@test'
-]);
